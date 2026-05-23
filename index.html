@@ -593,6 +593,36 @@ button{font-family:inherit;cursor:pointer}
 .flegal a:hover{color:var(--gold)}
 
 /* =========================================
+   MODALES LEGALES
+========================================= */
+.modal-ov{position:fixed;inset:0;background:rgba(10,5,2,.78);z-index:3000;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;backdrop-filter:blur(3px)}
+.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:6px;max-width:760px;width:100%;padding:52px 48px;position:relative;margin:auto}
+.modal-box h2{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--primary);margin-bottom:4px}
+.modal-box .mlegal-date{font-size:.72rem;color:var(--muted);letter-spacing:.5px;display:block;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--beige-md)}
+.modal-box h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--primary);margin:24px 0 8px}
+.modal-box p,.modal-box li{font-size:.86rem;color:var(--muted);line-height:1.8;margin-bottom:6px}
+.modal-box ul{padding-left:20px;margin-bottom:12px}
+.modal-box a{color:var(--brown);font-weight:600}
+.modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--muted);line-height:1;padding:4px 8px;transition:color .2s}
+.modal-close:hover{color:var(--primary)}
+@media(max-width:768px){.modal-box{padding:36px 22px}.modal-ov{padding:20px 12px}}
+
+/* =========================================
+   BANNER COOKIES
+========================================= */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:var(--dark);z-index:2900;display:none;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 32px;border-top:2px solid var(--gold)}
+.cookie-bar.show{display:flex}
+.cookie-bar p{font-size:.82rem;color:rgba(253,246,227,.8);line-height:1.6;margin:0;flex:1;min-width:220px}
+.cookie-bar p a{color:var(--gold);text-decoration:underline;cursor:pointer}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0}
+.cbtn-ok{background:var(--gold);color:var(--primary);border:none;padding:10px 24px;border-radius:3px;font-size:.8rem;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:background .2s}
+.cbtn-ok:hover{background:#b8932a}
+.cbtn-no{background:transparent;color:rgba(253,246,227,.45);border:1px solid rgba(253,246,227,.2);padding:10px 18px;border-radius:3px;font-size:.8rem;cursor:pointer;transition:color .2s}
+.cbtn-no:hover{color:rgba(253,246,227,.8)}
+@media(max-width:600px){.cookie-bar{flex-direction:column;align-items:flex-start}.cookie-btns{width:100%}.cbtn-ok,.cbtn-no{flex:1;text-align:center}}
+
+/* =========================================
    RESPONSIVE
 ========================================= */
 @media(max-width:1100px){
@@ -1148,14 +1178,129 @@ button{font-family:inherit;cursor:pointer}
         <div class="fbot">
             <p class="fcopy">© 2025 Productos Almon S.L. · Obrador artesanal · Cedillo del Condado, Toledo</p>
             <div class="flegal">
-                <a href="#">Privacidad</a>
-                <a href="#">Aviso legal</a>
-                <a href="#">Cookies</a>
+                <a href="#" onclick="openModal('modalPriv');return false;">Privacidad</a>
+                <a href="#" onclick="openModal('modalAviso');return false;">Aviso legal</a>
+                <a href="#" onclick="openModal('modalCook');return false;">Cookies</a>
             </div>
         </div>
     </div>
 </footer>
 
+
+<!-- ==================== MODAL: AVISO LEGAL ==================== -->
+<div class="modal-ov" id="modalAviso" role="dialog" aria-modal="true" aria-labelledby="tAviso">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modalAviso')" aria-label="Cerrar">×</button>
+    <h2 id="tAviso">Aviso Legal</h2>
+    <span class="mlegal-date">Última actualización: mayo 2025</span>
+
+    <h3>1. Datos del titular</h3>
+    <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se informa:</p>
+    <ul>
+      <li><strong>Denominación social:</strong> Productos Almon S.L.</li>
+      <li><strong>CIF:</strong> B-XXXXXXXX <em>(completar)</em></li>
+      <li><strong>Domicilio:</strong> Polígono Industrial de Requena, Cedillo del Condado, Toledo</li>
+      <li><strong>Teléfono:</strong> <a href="tel:+34925508263">925 508 263</a></li>
+      <li><strong>Correo electrónico:</strong> <a href="mailto:info@productosalmon.com">info@productosalmon.com</a></li>
+      <li><strong>Web:</strong> productosalmon.com</li>
+    </ul>
+
+    <h3>2. Objeto y ámbito de aplicación</h3>
+    <p>El presente Aviso Legal regula el acceso y uso del sitio web de Productos Almon S.L., cuya actividad es la fabricación y distribución artesanal de empanadas, pastelería, bollería y roscones de reyes.</p>
+
+    <h3>3. Condiciones de uso</h3>
+    <p>El acceso y navegación por este sitio web implica la aceptación expresa de las presentes condiciones. El usuario se compromete a hacer un uso correcto del sitio web, de conformidad con la ley, la buena fe y el orden público.</p>
+
+    <h3>4. Propiedad intelectual e industrial</h3>
+    <p>Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño gráfico y código fuente) son propiedad de Productos Almon S.L. o de terceros que han autorizado su uso, y están protegidos por la legislación española e internacional sobre propiedad intelectual e industrial. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+
+    <h3>5. Responsabilidad</h3>
+    <p>Productos Almon S.L. no se hace responsable de los daños o perjuicios que pudieran derivarse del uso del sitio web o de la imposibilidad de acceder al mismo por causas ajenas a su voluntad.</p>
+
+    <h3>6. Legislación aplicable</h3>
+    <p>Las presentes condiciones se rigen por la legislación española. Para cualquier controversia que pudiera surgir, ambas partes se someten a los Juzgados y Tribunales de Toledo, con renuncia expresa a cualquier otro fuero.</p>
+  </div>
+</div>
+
+<!-- ==================== MODAL: PRIVACIDAD ==================== -->
+<div class="modal-ov" id="modalPriv" role="dialog" aria-modal="true" aria-labelledby="tPriv">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modalPriv')" aria-label="Cerrar">×</button>
+    <h2 id="tPriv">Política de Privacidad</h2>
+    <span class="mlegal-date">Última actualización: mayo 2025</span>
+
+    <h3>1. Responsable del tratamiento</h3>
+    <ul>
+      <li><strong>Identidad:</strong> Productos Almon S.L.</li>
+      <li><strong>CIF:</strong> B-XXXXXXXX <em>(completar)</em></li>
+      <li><strong>Dirección:</strong> Polígono Industrial de Requena, Cedillo del Condado, Toledo</li>
+      <li><strong>Contacto DPD:</strong> <a href="mailto:info@productosalmon.com">info@productosalmon.com</a></li>
+    </ul>
+
+    <h3>2. Finalidad del tratamiento</h3>
+    <p>Los datos personales que nos facilite a través del formulario de contacto serán tratados con las siguientes finalidades:</p>
+    <ul>
+      <li>Atender y gestionar las consultas, solicitudes de información y pedidos recibidos.</li>
+      <li>Enviar información comercial sobre productos y servicios, previa solicitud del usuario.</li>
+      <li>Cumplir con las obligaciones legales aplicables.</li>
+    </ul>
+
+    <h3>3. Base jurídica</h3>
+    <p>El tratamiento se basa en el consentimiento del interesado (art. 6.1.a RGPD) para las comunicaciones comerciales, y en la ejecución de un contrato o medidas precontractuales (art. 6.1.b RGPD) para la gestión de pedidos y consultas.</p>
+
+    <h3>4. Conservación de datos</h3>
+    <p>Los datos se conservarán durante el tiempo necesario para atender su solicitud y, en su caso, durante los plazos legalmente establecidos.</p>
+
+    <h3>5. Destinatarios</h3>
+    <p>Sus datos no serán cedidos a terceros salvo obligación legal. No realizamos transferencias internacionales de datos.</p>
+
+    <h3>6. Derechos del interesado</h3>
+    <p>Puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad enviando un email a <a href="mailto:info@productosalmon.com">info@productosalmon.com</a> con copia de su DNI. Asimismo, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+
+    <h3>7. Medidas de seguridad</h3>
+    <p>Productos Almon S.L. ha adoptado las medidas técnicas y organizativas necesarias para garantizar la seguridad de sus datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado.</p>
+  </div>
+</div>
+
+<!-- ==================== MODAL: COOKIES ==================== -->
+<div class="modal-ov" id="modalCook" role="dialog" aria-modal="true" aria-labelledby="tCook">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modalCook')" aria-label="Cerrar">×</button>
+    <h2 id="tCook">Política de Cookies</h2>
+    <span class="mlegal-date">Última actualización: mayo 2025</span>
+
+    <h3>¿Qué son las cookies?</h3>
+    <p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo al visitar una página web. Permiten que el sitio recuerde sus preferencias y mejore la experiencia de navegación.</p>
+
+    <h3>Cookies que utiliza este sitio web</h3>
+    <p>Este sitio web utiliza únicamente <strong>cookies técnicas y de preferencia</strong> estrictamente necesarias para su funcionamiento:</p>
+    <ul>
+      <li><strong>almon_cookies:</strong> Almacena su decisión sobre el aviso de cookies. Duración: 365 días. Tipo: propia.</li>
+    </ul>
+    <p>Este sitio <strong>no utiliza cookies de seguimiento, analíticas ni publicitarias</strong> de terceros.</p>
+
+    <h3>Cómo gestionar las cookies</h3>
+    <p>Puede configurar su navegador para bloquear o eliminar las cookies. Tenga en cuenta que deshabilitar las cookies técnicas puede afectar al correcto funcionamiento del sitio.</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Chrome</a></li>
+      <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web" target="_blank" rel="noopener">Firefox</a></li>
+      <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+      <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Edge</a></li>
+    </ul>
+
+    <h3>Más información</h3>
+    <p>Para cualquier consulta sobre nuestra política de cookies puede contactarnos en <a href="mailto:info@productosalmon.com">info@productosalmon.com</a>.</p>
+  </div>
+</div>
+
+<!-- ==================== BANNER COOKIES ==================== -->
+<div class="cookie-bar" id="cookieBar">
+  <p>Usamos cookies técnicas propias para el correcto funcionamiento del sitio. No utilizamos cookies de terceros ni de seguimiento. <a onclick="openModal('modalCook')">Más información</a>.</p>
+  <div class="cookie-btns">
+    <button class="cbtn-ok" id="cbtnOk">Aceptar</button>
+    <button class="cbtn-no" id="cbtnNo">Rechazar</button>
+  </div>
+</div>
 
 <!-- ==================== JAVASCRIPT ==================== -->
 <script>
@@ -1370,6 +1515,37 @@ function initForm(fId, okId, btnTxt) {
 }
 initForm('df','dok','Enviar solicitud');
 initForm('cf','cok','Enviar mensaje');
+
+/* --- Modales legales --- */
+function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-ov').forEach(ov => {
+    ov.addEventListener('click', e => { if(e.target === ov) closeModal(ov.id); });
+});
+document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') document.querySelectorAll('.modal-ov.open').forEach(ov => closeModal(ov.id));
+});
+
+/* --- Banner cookies --- */
+(function(){
+    if(!localStorage.getItem('almon_cookies')) {
+        document.getElementById('cookieBar').classList.add('show');
+    }
+    document.getElementById('cbtnOk').addEventListener('click', () => {
+        localStorage.setItem('almon_cookies','accepted');
+        document.getElementById('cookieBar').classList.remove('show');
+    });
+    document.getElementById('cbtnNo').addEventListener('click', () => {
+        localStorage.setItem('almon_cookies','rejected');
+        document.getElementById('cookieBar').classList.remove('show');
+    });
+})();
 </script>
 </body>
 </html>
